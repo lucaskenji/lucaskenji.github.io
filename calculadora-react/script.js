@@ -1,6 +1,3 @@
-import React from "./react.js";
-import ReactDOM from "./react-dom.js";
-
 class MainApp extends React.Component {
 				state = {
 					// operationPhase is 0 when typing first element on operation, 1 when operator was typed, and 2 when second element is being typed.
