@@ -137,64 +137,54 @@
 				}
 			}
 		
-			class ButtonPad extends React.Component {
-				render() {
+			function ButtonPad(props){
 					return (<div id="button-pad">
 						<div id="main-pad">
 							<div id="option-pad">
-								{ ["AC", "C", "<"].map((num) => <ButtonOption handleOption={this.props.handleOption} key={num} symbol={num} /> ) }
+								{ ["AC", "C", "<"].map((num) => <ButtonOption handleOption={props.handleOption} key={num} symbol={num} /> ) }
 							</div>
 							<div id="num-pad">
-								{ [7, 8, 9, 4, 5, 6, 1, 2, 3].map((num) => <ButtonNumber handleClick={this.props.handleClick} key={num} value={num} /> ) }
+								{ [7, 8, 9, 4, 5, 6, 1, 2, 3].map((num) => <ButtonNumber handleClick={props.handleClick} key={num} value={num} /> ) }
 							</div>
 							<div id="special-numpad">
-								<ButtonNumber handleClick={this.props.handleClick} key={0} value={0} />
-								<ButtonNumber handleClick={this.props.handleClick} key={"."} value={"."} />
+								<ButtonNumber handleClick={props.handleClick} key={0} value={0} />
+								<ButtonNumber handleClick={props.handleClick} key={"."} value={"."} />
 							</div>
 						</div>
 						<div id="column-operators">
-							{ this.props.operators.map((btnopr) => <ButtonOperator handleClick={this.props.handleClick} key={this.props.operators.indexOf(btnopr)} symbol={btnopr.symbol} /> ) }
+							{ props.operators.map((btnopr) => <ButtonOperator handleClick={props.handleClick} key={props.operators.indexOf(btnopr)} symbol={btnopr.symbol} /> ) }
 						</div>
 					</div>);
-				}
 			}
 		
-			class ButtonNumber extends React.Component {
-				render() {
-					let classes = "bg-orange round-sqr ";
-					if (this.props.value == 0) {
-						classes = classes.concat("button-zero");
-					} else {
-						classes = classes.concat("button-operator");
-					}
-					return (<div onClick={() => this.props.handleClick(this.props.value)} className={ classes }>
-								<div className="button-value round-sqr no-select">{ this.props.value }</div>
-							</div>);
+			function ButtonNumber(props){
+				let classes = "bg-orange round-sqr ";
+				if (props.value == 0) {
+					classes = classes.concat("button-zero");
+				} else {
+					classes = classes.concat("button-operator");
 				}
+				return (<div onClick={() => props.handleClick(props.value)} className={ classes }>
+							<div className="button-value round-sqr no-select">{ props.value }</div>
+						</div>);
 			}
 		
-			class ButtonOperator extends React.Component {
-				render() {
-					return (<div onClick={() => this.props.handleClick(this.props.symbol)} className="bg-blue button-operator round-sqr">
-								<div className="button-value round-sqr no-select">{ this.props.symbol }</div>
-							</div>);
-				}
+			function ButtonOperator(props){
+				return (<div onClick={() => props.handleClick(props.symbol)} className="bg-blue button-operator round-sqr">
+					<div className="button-value round-sqr no-select">{ props.symbol }</div>
+				</div>);
 			}
 			
-			class ButtonOption extends React.Component {
-				render() {
-					return (<div onClick={() => this.props.handleOption(this.props.symbol)} className="bg-red button-operator round-sqr">
-								<div className="button-value round-sqr no-select">{ this.props.symbol }</div>
-							</div>);
-				}
+			function ButtonOption(props){
+				return (<div onClick={() => props.handleOption(props.symbol)} className="bg-red button-operator round-sqr">
+					<div className="button-value round-sqr no-select">{ props.symbol }</div>
+				</div>);
 			}
 			
-			class ScreenCalculator extends React.Component {
-				render() {
-					return (<div className="screen-calc round-sqr">
-						<div className="screen-txt">{ this.props.screenText }</div>
-					</div>);
-				}
+			function ScreenCalculator(props){
+				return (<div className="screen-calc round-sqr">
+					<div className="screen-txt">{ props.screenText }</div>
+				</div>);
 			}
 
 			ReactDOM.render(<MainApp/>, document.getElementById("root"));
