@@ -1,0 +1,46 @@
+@font-face {
+	font-family: JockeyOne;
+	src: url("./JockeyOne-Regular.ttf");
+}
+
+body {
+	background-color: #a6dcef;
+	height: 100%;
+}
+
+h1, h3 {
+	font-family: JockeyOne;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+.center-div {
+	text-align: center;
+}
+
+.editor-component {
+	background-color: white;
+	border-radius: 15px;
+}
+
+.footer {
+	height: 80px;
+	background-color: black;
+	opacity: 0.7;
+	text-align: center;
+	position: relative;
+	margin-top: -80px;
+}
+
+.footer-content {
+	color: white;
+	padding-top: 30px;
+}
+
+.preview-image {
+	width: 200px;
+	height: 200px;
+	border-radius: 15px;
+}
